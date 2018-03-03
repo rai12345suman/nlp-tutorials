@@ -32,9 +32,18 @@ word_features = list(all_words.keys())[:3000]
 def find_features(document):
     words = set(document)
     features = {}
-    for w in word_feaures:
-        features[w] = {w in words}
+    for w in word_features:
+        features[w] = (w in words)
     return features
-print((find_features(movie_reviews.words('neg/cv000_29416.txt'))))
+
+all_features = find_features(movie_reviews.words('neg/cv000_29416.txt'))
+
+# print 100 of the features
+i = 0
+for key, value in all_features.items():
+    print('{0:10} ==> {1:10}'.format(str(key), str(value)))
+    i =  i + 1
+    if i > 100:
+        break
 
 featuresets = [(find_features(rev), category) for (rev, category) in documents]
