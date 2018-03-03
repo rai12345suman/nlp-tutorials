@@ -6,7 +6,7 @@
 # To start, we're going to use some sort of binary label. Examples of this could be identifying text
 # as spam or not, or, like what we'll be doing, positive sentiment or negative sentiment. 
 # https://youtu.be/zi16nl82AMA
-#
+
 import nltk
 import random
 from nltk.corpus import movie_reviews
@@ -24,9 +24,11 @@ for w in movie_reviews.words():
     all_words.append(w.lower())
 
 all_words = nltk.FreqDist(all_words)
+print("15 most common words: ")
 # 15 most common words
 print(all_words.most_common(15))
 
+print("How many times does stupid appear")
 # how many times does 'stupid' appear
 print(all_words["stupid"])
 
