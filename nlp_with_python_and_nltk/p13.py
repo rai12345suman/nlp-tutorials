@@ -1,8 +1,7 @@
 # Naive Bayes - Natural Language Processing With Python and NLTK p.13
 # The algorithm of choice, at least at a basic level, for text analysis is often the Naive Bayes
 # classifier. Part of the reason for this is that text data is almost always massive in size. The
-# Naive Bayes algorithm is so simple that it can be used at scale very easily with minimal process
-# requirements.
+# Naive Bayes algorithm is so simple that it can be used at scale very easily with minimal process requirements.
 # https://youtu.be/rISOsUaTrO4
 
 import nltk
@@ -37,4 +36,5 @@ train_set, test_set = featuresets[1900:], featuresets[1900:]
 
 classifier = nltk.NaiveBayesClassifier.train(train_set)
 print("Naive Bayes Algo accuracy percent:", (nltk.classify.accuracy(classifier, test_set))*100)
+print('15 most informative feature: ')
 classifier.show_most_informative_features(15)
