@@ -14,4 +14,5 @@ Various NLP Tutorials
 ### Text Classification - p.11
 ### Words as Features for Learning - p.12
 ### Naive Bayes - p.13
-
+### Save Classifier with Pickle - p.14
+### Scikit-Learn incorporation - p.15
