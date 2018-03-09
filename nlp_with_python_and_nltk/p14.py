@@ -43,7 +43,8 @@ def remove_punctuation_from_list(all_words):
 def main():
 
     # list of tuples
-    documents = [(list(movie_reviews.words(fileid)), category) for category in movie_reviews.categories() for fileid in movie_reviews.fileids(category)]
+    documents = [(list(movie_reviews.words(fileid)), category)
+                 for category in movie_reviews.categories() for fileid in movie_reviews.fileids(category)]
 
     # Everyday I'm shufflin'
     random.shuffle(documents)
@@ -59,8 +60,8 @@ def main():
     featuresets = [(find_features(rev, all_words), category) for (rev, category) in documents]
 
     # split into training and testing
-    train_set = featuresets[1900:] 
-    test_set = featuresets[:1900]
+    train_set = featuresets[:1900] 
+    test_set = featuresets[1900:]
 
     classifier = nltk.NaiveBayesClassifier.train(train_set)
     print("Naive Bayes Algo accuracy percent:", (nltk.classify.accuracy(classifier, test_set))*100)
@@ -81,7 +82,6 @@ def main():
         print("Naive Bayes Algo accuracy percent:", (nltk.classify.accuracy(classifier, test_set))*100)
     except pickle.UnpicklingError as e:
         # normal, somewhat expected
-        print('everything is fine')
         pass
     except (AttributeError,  EOFError, ImportError, IndexError) as e:
         # secondary errors
