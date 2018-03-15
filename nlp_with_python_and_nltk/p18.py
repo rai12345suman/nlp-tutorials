@@ -159,7 +159,7 @@ def train_and_test_classifiers(train_set, test_set):
     # print("Skipping C-Support Vector Classifier")
     # print("Skipping Linear-Support Vector Classifier")
     SVC_classifier = SklearnClassifier(SVC(), sparse=False).train(train_set)
-    # SVC_classifier.train(train_set)
+    SVC_classifier.train(train_set)
     print("C-Support Vector Classifier accuracy percent:",
           (nltk.classify.accuracy(SVC_classifier, test_set)) * 100)
     LinearSVC_classifier1 = SklearnClassifier(SVC(kernel='linear', probability=True, tol=1e-3))
@@ -250,9 +250,6 @@ def main():
             all_words.append(word.lower())
         documents.append((line, "neg"))
     
-    # short_pos_words = word_tokenize(short_pos)
-    # short_neg_words = word_tokenize(short_neg)
-    # for w in short_pos_words:
     # for w in short_neg_words:
     #    all_words.append(w.lower())
     # short_pos_words = word_tokenize(short_pos)
@@ -261,7 +258,7 @@ def main():
     all_words = remove_punctuation_from_list(all_words)
     all_words = remove_stop_words_from_list(all_words)
     all_words = nltk.FreqDist(all_words)
-    print("words list length : ", len(all_words))
+    print("All Words list length : ", len(all_words))
 
     featuresets = [(find_features(rev, all_words), category)
                    for (rev, category) in documents]
@@ -271,6 +268,8 @@ def main():
     # split into train and test
     train_set = featuresets[:10000]
     test_set = featuresets[10000:]
+    print("Train set length : ", len(train_set))
+    print("Test set length : ", len(test_set))
 
     train_and_test_classifiers(train_set, test_set)
 
