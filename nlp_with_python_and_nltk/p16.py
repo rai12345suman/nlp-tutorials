@@ -155,7 +155,7 @@ def train_and_test_classifiers(train_set, test_set):
     # print("Skipping C-Support Vector Classifier")
     # print("Skipping Linear-Support Vector Classifier")
     SVC_classifier = SklearnClassifier(SVC(), sparse=False).train(train_set)
-    # SVC_classifier.train(train_set)
+    SVC_classifier.train(train_set)
     print("C-Support Vector Classifier accuracy percent:",
           (nltk.classify.accuracy(SVC_classifier, test_set)) * 100)
     LinearSVC_classifier1 = SklearnClassifier(SVC(kernel='linear', probability=True, tol=1e-3))
