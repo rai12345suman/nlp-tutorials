@@ -78,11 +78,8 @@ class VoteClassifier(ClassifierI):
             print ('No unique mode found, returning 1st vote')
             return .50
 
-def find_features(document, all_words):
-    words = set(document)
-
-    # use top 3000 words
-    word_features = list(all_words.keys())[:5000]
+def find_features(document, word_features):
+    words = word_tokenize(document)
     features = {}
     for w in word_features:
         features[w] = (w in words)
@@ -249,18 +246,15 @@ def main():
             short_neg_words.append(word)
             all_words.append(word.lower())
         documents.append((line, "neg"))
-    
-    # for w in short_neg_words:
-    #    all_words.append(w.lower())
-    # short_pos_words = word_tokenize(short_pos)
-    # short_neg_words = word_tokenize(short_neg)
-    
+     
     all_words = remove_punctuation_from_list(all_words)
     all_words = remove_stop_words_from_list(all_words)
     all_words = nltk.FreqDist(all_words)
     print("All Words list length : ", len(all_words))
 
-    featuresets = [(find_features(rev, all_words), category)
+    # use top 5000 words
+    word_features = list(all_words.keys())[:5000]
+    featuresets = [(find_features(rev, word_features), category)
                    for (rev, category) in documents]
     print("Feature sets list length : ", len(featuresets))
     random.shuffle(featuresets)
