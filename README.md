@@ -16,3 +16,7 @@ Various NLP Tutorials
 ### Naive Bayes - p.13
 ### Save Classifier with Pickle - p.14
 ### Scikit-Learn incorporation - p.15
+### Combining Algos with a Vote - p.16
+### Investigating Bias - p.17
+### Better training data - p.18
+### Sentiment Analysis Module - p.19
