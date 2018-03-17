@@ -114,9 +114,7 @@ def remove_stop_words_from_list(all_words):
 
 def train_and_test_classifiers(train_set, test_set):
     classifier = nltk.NaiveBayesClassifier.train(train_set)
-    print("Classic Naive Bayes Classifier accuracy percent:",
-          (nltk.classify.accuracy(classifier, test_set)) * 100)
-    # classifier.show_most_informative_features(15)
+   
     MNB_classifier = SklearnClassifier(MultinomialNB(alpha=0.01, fit_prior=False))
     MNB_classifier.train(train_set)
     print("Multinomial Naive Bayes Classifier accuracy percent:",
@@ -235,17 +233,34 @@ def main():
     fname = 'short_reviews/negative.txt'
     neg_lines = [line.rstrip('\n') for line in open(fname, 'r', encoding='ISO-8859-1')]
     
-    for line in pos_lines:
-        for word in line.split():
-            short_pos_words.append(word.lower())
-            all_words.append(word.lower())
-        documents.append((line, "pos"))
+    # Everyday I'm shufflin'
+    random.shuffle(pos_lines)
     
+    stop_words = set(stopwords.words('english'))
+    translator = str.maketrans('', '', string.punctuation)
+    
+    for line in pos_lines:
+    	# remove punctuation from string
+        clean_line = line.translate(translator)
+    	# filtered_sentence = [w for w in all_words if not w in stop_words]
+        documents.append((clean_line, "pos"))
+        
+        for word in clean_line.split():
+            if not word in stop_words:
+            	short_pos_words.append(word.lower())
+            	all_words.append(word.lower())
+    
+    # Everyday I'm shufflin'
+    random.shuffle(neg_lines)
     for line in neg_lines:
-        for word in line.split():
+    	# remove punctuation from string
+        translator = str.maketrans('', '', string.punctuation)
+        clean_line = line.translate(translator)
+        documents.append((clean_line, "neg"))
+        
+        for word in clean_line.split():
             short_neg_words.append(word)
             all_words.append(word.lower())
-        documents.append((line, "neg"))
      
     all_words = remove_punctuation_from_list(all_words)
     all_words = remove_stop_words_from_list(all_words)
@@ -264,6 +279,11 @@ def main():
     test_set = featuresets[10000:]
     print("Train set length : ", len(train_set))
     print("Test set length : ", len(test_set))
+    
+    classifier = nltk.NaiveBayesClassifier.train(train_set)
+    print("Classic Naive Bayes Classifier accuracy percent:",
+          (nltk.classify.accuracy(classifier, test_set)) * 100)
+    classifier.show_most_informative_features(15)
 
     train_and_test_classifiers(train_set, test_set)
 
