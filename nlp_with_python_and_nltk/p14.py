@@ -1,13 +1,13 @@
 # Save Classifier with Pickle - Natural Language Processing With Python and NLTK p.14
 # As you will likely find with any form of data analysis, there is going to be some sort of
 # processing bottleneck, that you repeat over and over, often yielding the same object in Python
-# memory. 
+# memory.
 #
 # Examples of this might be loading a massive dataset into memory, some basic pre-processing of a
-# static dataset, or, like in our case, the training of a classifier. 
+# static dataset, or, like in our case, the training of a classifier.
 #
 # In our case, we spend much time on training our classifier, and soon we may add more. It is a wise choice to go ahead and pickle the trained classifer. This way, we can load in the trained
-# classifier in a matter of milliseconds, rather than waiting 3-5+ minutes for the classifier to be trained. 
+# classifier in a matter of milliseconds, rather than waiting 3-5+ minutes for the classifier to be trained.
 #
 # To do this, we use the standard library's "pickle" module. What pickle does is serialize, or
 # de-serialize, python objects. This could be lists, dictionaries, or even things like our trained classifier!
@@ -60,7 +60,7 @@ def main():
     featuresets = [(find_features(rev, all_words), category) for (rev, category) in documents]
 
     # split into training and testing
-    train_set = featuresets[:1900] 
+    train_set = featuresets[:1900]
     test_set = featuresets[1900:]
 
     classifier = nltk.NaiveBayesClassifier.train(train_set)
@@ -74,11 +74,9 @@ def main():
         with open(filename, 'wb') as save_classifier:
             print('Writing with Pickle')
             pickle.dump(classifier, save_classifier)
-            save_classifier.close()
         with open(filename, 'rb') as classifier_f:
             print('Reading from Pickle')
             classifier = pickle.load(classifier_f)
-            classifier_f.close()
         print("Naive Bayes Algo accuracy percent:", (nltk.classify.accuracy(classifier, test_set))*100)
     except pickle.UnpicklingError as e:
         # normal, somewhat expected
