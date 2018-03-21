@@ -1,15 +1,12 @@
-# Better training data - Natural Language Processing With Python and NLTK p.18
+ # Sentiment Analysis Module - Natural Language Processing With Python and NLTK p.19
 
- # After some consideration it became clear that a new dataset would solve a lot of problems. This
- # tutorial covers employing a new dataset, and what is involved in this process.
- #
- # This time, we're using a movie reviews data set that contains much shorter movie reviews.
- #
- # You can get this data set from: https://pythonprogramming.net/static/downloads/short_reviews/
- #
- # This one yields us a far more reliable reading across the board, and is far more fitting for the
- # tweets we intend to read from the Twitter API soon.
- # https://youtu.be/UF-RyxOAHQw
+ # Now that we've got a more reliable classifier, we're ready to push forward. Here, we cover how we can convert our classifier training script to an actual sentiment analysis module.
+
+ # We pickle everything, and create a new sentiment function, which, with a parameter of "Text" will perform a classification and return the result.
+
+ # By pickling everything, we find that we can load this module in seconds, rather than the prior 3-5 minutes. After this, we're ready to apply this module to a live Twitter stream.
+
+# https://youtu.be/eObouMO2qSE
 import nltk
 import random
 from nltk.corpus import movie_reviews
