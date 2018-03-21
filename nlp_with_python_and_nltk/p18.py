@@ -59,9 +59,9 @@ class VoteClassifier(ClassifierI):
             return most_common_vote
         except StatisticsError:
             print ('No unique mode found, returning 1st vote')
-                # TODO if no unique mode, see if classifiers with highest and second highest
-                # accuracy agree. if so do that. if not, just use highest accuracy classifier
-                return votes[0]
+            # TODO if no unique mode, see if classifiers with highest and second highest
+            # accuracy agree. if so do that. if not, just use highest accuracy classifier
+            return votes[0]
 
     def confidence(self, features):
         votes = []
@@ -271,7 +271,12 @@ def main():
     print("Train set length : ", len(train_set))
     print("Test set length : ", len(test_set))
 
-    train_and_test_classifiers(train_set, test_set)
+    kNN_classifier = SklearnClassifier(KNeighborsClassifier(n_neighbors=10))
+    kNN_classifier.train(train_set)
+    print("kNN Classifier accuracy percent:",
+            (nltk.classify.accuracy(kNN_classifier, test_set)) * 100)
+
+    # train_and_test_classifiers(train_set, test_set)
 
 if __name__ == '__main__':
     main()
