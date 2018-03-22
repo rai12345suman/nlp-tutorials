@@ -1,15 +1,15 @@
 # nlp-tutorials
 Various NLP Tutorials
 ## Natural Language Processing With Python and NLTK - Sentdex - Misc 
-### Tokenizing words and Sentences - p.1
-### Stop Words - p.2
-### Stemming -  p.3
-### Part of Speech Tagging - p.4
-### Chunking - p.5
-### Chinking - p.6
-### Named Entity Recognition - p.7
-### Lemmatizing - p.8
-### NLTK Corpora - p.9
+### Tokenizing words and Sentences - [p.1](nlp_with_python_and_nltk/p1.py)
+### Stop Words - [p.2](nlp_with_python_and_nltk/p2.py)
+### Stemming -  [p.3](nlp_with_python_and_nltk/p3.py)
+### Part of Speech Tagging - [p.4](nlp_with_python_and_nltk/p4.py)
+### Chunking - [p.5](nlp_with_python_and_nltk/p5.py)
+### Chinking - [p.6](nlp_with_python_and_nltk/p6.py)
+### Named Entity Recognition - [p.7](nlp_with_python_and_nltk/p7.py)
+### Lemmatizing - [p.8](nlp_with_python_and_nltk/p8.py)
+### NLTK Corpora - [p.9](nlp_with_python_and_nltk/p9.py)
 ### Wordnet - [p.10](nlp_with_python_and_nltk/p10.py)
 ### Text Classification - [p.11](nlp_with_python_and_nltk/p11.py)
 ### Words as Features for Learning - [p.12](nlp_with_python_and_nltk/p12.py)
