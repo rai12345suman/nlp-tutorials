@@ -104,4 +104,5 @@ bin/
 include/
 lib/
 
-.pickle
+# any pickle files
+*.pickle
