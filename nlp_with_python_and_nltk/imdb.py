@@ -1,7 +1,5 @@
 # imdb-pie is required
 # Author: Sunjay Dhama
-#
-
 from imdbpie import Imdb
 
 
@@ -34,11 +32,12 @@ def help_print_movie(movie_dict):
         except TypeError:
             print('TypeError')
 
+
 def main():
     imdb = Imdb()
     movie = str(input('Movie Name: '))
     movie_search = '+'.join(movie.split())
-    # print(imdb.search_for_name("Christian Bale")) 
+    # print(imdb.search_for_name("Christian Bale"))
     movie_dict  = imdb.search_for_title(movie_search)
     help_print_movie(movie_dict)
     imdb_id = str(input('IMBD ID: '))
