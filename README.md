@@ -1,6 +1,6 @@
 # nlp-tutorials
 Various NLP Tutorials
-## Natural Language Processing With Python and NLTK - Sentdex - Misc 
+## Natural Language Processing With Python and NLTK - Sentdex - Misc
 ### Tokenizing words and Sentences - [p.1](nlp_with_python_and_nltk/p1.py)
 ### Stop Words - [p.2](nlp_with_python_and_nltk/p2.py)
 ### Stemming -  [p.3](nlp_with_python_and_nltk/p3.py)
@@ -20,3 +20,5 @@ Various NLP Tutorials
 ### Investigating Bias - [p.17](nlp_with_python_and_nltk/p17.py)
 ### Better training data - [p.18](nlp_with_python_and_nltk/p18.py)
 ### Sentiment Analysis Module - [p.19](nlp_with_python_and_nltk/p19.py)
+### Twitter Sentiment Analysis - [p.20](nlp_with_python_and_nltk/p20.py)
+### Graphing Live Twitter Sentiment - [p.21](nlp_with_python_and_nltk/p21.py)
